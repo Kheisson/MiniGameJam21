@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 846555310}
   - component: {fileID: 846555312}
   - component: {fileID: 846555311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BottomBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1389407118}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LevelLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1784616423}
   - component: {fileID: 1784616425}
   - component: {fileID: 1784616424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TopBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,6 +421,10 @@ MonoBehaviour:
   rb: {fileID: 2018570333}
   playerAnimator: {fileID: 1967249271}
   playerSprite: {fileID: 2018570334}
+  playerCollider: {fileID: 2018570335}
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
   playerSpeed: 1
 --- !u!95 &1967249271
 Animator:

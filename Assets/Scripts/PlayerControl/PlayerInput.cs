@@ -1,4 +1,3 @@
-using System;
 using Animations;
 using UnityEngine;
 
@@ -12,9 +11,10 @@ namespace PlayerControl
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private SpriteRenderer playerSprite;
-
-        [Header("Player Speed")] [SerializeField]
-        private float playerSpeed = 1f;
+        [SerializeField] private BoxCollider2D playerCollider;
+        
+        [Header("Jump collider layer")] [SerializeField] private LayerMask layer;
+        [Header("Speed")] [SerializeField] private float playerSpeed = 1f;
 
         private PlayerAnimation _pa;
         private float _jumpForce = 500f;
@@ -32,7 +32,7 @@ namespace PlayerControl
 
         private void Update()
         {
-            if (Input.GetKeyDown(JUMP_INPUT_NAME))
+            if (Input.GetKeyDown(JUMP_INPUT_NAME) && IsGrounded())
                 Jump();
         }
 
@@ -61,8 +61,16 @@ namespace PlayerControl
         private void Jump()
         {
             rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Force);
-            _pa.JumpAnimation();
+            _pa.HandleJump();
         }
+
+        private bool IsGrounded()
+        {
+            RaycastHit2D hit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f,
+                Vector2.down, 0.5f,layer);
+            return hit.collider != null;
+        }
+
     }
 
 }

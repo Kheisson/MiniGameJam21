@@ -4,7 +4,7 @@ namespace Animations
 {
     public class PlayerAnimation : Animated
     {
-        private readonly int _run = Animator.StringToHash("Run"); 
+        private readonly int _run = Animator.StringToHash("Run");
         public PlayerAnimation(Animator anim) : base(anim)
         {
         }
@@ -13,5 +13,11 @@ namespace Animations
         {
             _anim.SetBool(_run, isRunning);
         }
+
+        public void HandleJump()
+        {
+            JumpAnimation();
+        }
+        
     }
 }
