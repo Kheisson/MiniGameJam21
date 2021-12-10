@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2018570333}
   playerAnimator: {fileID: 1967249271}
+  playerSprite: {fileID: 2018570334}
   playerSpeed: 1
 --- !u!95 &1967249271
 Animator:
