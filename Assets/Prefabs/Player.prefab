@@ -145,7 +145,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5173474811581279664}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c16b7a623cc1def4ca1d767f06690b50, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   playersFeet: {fileID: 5173474810925922060}
   collideRadius: 0.1
   playerSpeed: 5
-  jumpForce: 500
+  jumpForce: 550
   moveFeel: 0.5
 --- !u!95 &5173474811648909019
 Animator:
