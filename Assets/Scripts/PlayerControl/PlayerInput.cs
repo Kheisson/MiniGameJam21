@@ -103,5 +103,16 @@ namespace PlayerControl
             _top = !_top;
             jumpForce *= -1;
         }
+
+        public void Death()
+        {
+            _pa.HandleDeath();
+            this.enabled = false;
+        }
+
+        private void DestroyPlayer() // called by animation event
+        {
+            Destroy(gameObject);
+        }
     }
 }
