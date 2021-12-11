@@ -19,6 +19,7 @@ namespace Base
                 rb.gameObject.transform.eulerAngles = Vector3.zero;
 
             _top = !_top;
+            _facingRight = !_facingRight;
         }
     
         protected void FlipDirection()

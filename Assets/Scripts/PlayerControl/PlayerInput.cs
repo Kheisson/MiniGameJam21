@@ -52,7 +52,7 @@ namespace PlayerControl
             if (Input.GetKeyDown(KeyCode.E))
             {
                 GravityControl.Switch();
-                _facingRight = !_facingRight;
+                //_facingRight = !_facingRight;
             }
         }
 
