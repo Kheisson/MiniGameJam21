@@ -105,7 +105,7 @@ namespace PlayerControl
 
         private void DestroyPlayer() // called by animation event
         {
-            Destroy(gameObject, 1.5f);
+            Destroy(gameObject, 1f);
         }
     }
 }

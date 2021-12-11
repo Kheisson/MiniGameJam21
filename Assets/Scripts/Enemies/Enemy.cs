@@ -6,7 +6,7 @@ namespace Enemies
 {
     public class Enemy : Humaniod
     {
-
+        private bool isDead = false;
         [SerializeField] private Rigidbody2D enemyRb;
         [SerializeField] private Transform enemiesFeet;
         [SerializeField] private Transform enemiesBody;
@@ -26,6 +26,11 @@ namespace Enemies
 
         private void FixedUpdate()
         {
+            if (isDead)
+            {
+                return;
+            }
+
             enemyRb.velocity = new Vector2(enemiesSpeed, enemyRb.velocity.y);
             if (onPlatform && ReachedEndOfPlatform)
             {
@@ -51,8 +56,8 @@ namespace Enemies
             
             if (other.gameObject.CompareTag("Hazards") && other.otherCollider != feetCollider)
             {
+                rb.velocity = Vector2.zero;
                 _ea.HandleDeath();
-                Destroy(gameObject, 0.1f);
             }
         }
 
