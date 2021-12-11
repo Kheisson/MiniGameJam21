@@ -8,11 +8,6 @@ namespace PlayerControl
         private const string HORIZONAL_INPUT_NAME = "Horizontal";
         private const KeyCode JUMP_INPUT_NAME = KeyCode.Space;
 
-        public bool isGrounded
-        {
-            get => IsGrounded();
-        }
-
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private SpriteRenderer playerSprite;
@@ -28,7 +23,7 @@ namespace PlayerControl
 
         private void Start()
         {
-            _pa = new PlayerAnimation(playerAnimator, GetComponentInChildren<Rigidbody2D>());
+            _pa = new PlayerAnimation(playerAnimator);
         }
 
         private void FixedUpdate()
@@ -38,9 +33,9 @@ namespace PlayerControl
 
         private void Update()
         {
-            if (Input.GetKeyDown(JUMP_INPUT_NAME) && IsGrounded())
+            if (Input.GetKeyDown(JUMP_INPUT_NAME) && isGrounded)
                 Jump();
-            _pa.HandleFalling();
+            _pa.HandleFalling(isGrounded, rb.velocity.y);
         }
 
         private void Move(float input)
@@ -76,6 +71,11 @@ namespace PlayerControl
             RaycastHit2D hit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f,
                 Vector2.down, groundCheckDistance,layer);
             return hit.collider != null;
+        }
+        
+        public bool isGrounded
+        {
+            get => IsGrounded();
         }
 
     }
