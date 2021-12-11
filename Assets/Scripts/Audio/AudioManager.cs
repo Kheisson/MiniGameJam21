@@ -15,6 +15,7 @@ namespace Audio
         {
             _instance = this;
             _audioSource = GetComponent<AudioSource>();
+            DontDestroyOnLoad(gameObject);
         }
 
         public static AudioManager Instance
@@ -33,7 +34,6 @@ namespace Audio
         {
             var go = new GameObject("Audio Manager");
             var monoBeh = go.AddComponent<AudioManager>();
-            _audioSource = monoBeh.GetComponent<AudioSource>();
             return monoBeh;
         }
 
