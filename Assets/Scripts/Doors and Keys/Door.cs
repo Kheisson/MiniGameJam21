@@ -4,26 +4,20 @@ using System.Collections.Generic;
 using Audio;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+namespace DoorsAndKeys
 {
-    private BoxCollider2D collider;
-    private Animator anim;
-    private int numberOfKeysLeft = 0;
-
-    private void Awake()
+    public class Door : MonoBehaviour
     {
-        collider = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
-    }
+        private BoxCollider2D collider;
+        private Animator anim;
+        private int numberOfKeysLeft = 0;
 
-    private void OnEnable()
-    {
-        var keys = FindObjectsOfType<Key>();
-        foreach (var key in keys)
+        private void Awake()
         {
-            key.OnKeyUsed += UpdateKeyCount;
-            numberOfKeysLeft++;
+            collider = GetComponent<BoxCollider2D>();
+            anim = GetComponent<Animator>();
         }
+<<<<<<< HEAD
     }
     
     private void Open()
@@ -31,20 +25,38 @@ public class Door : MonoBehaviour
         anim.SetBool("isOpen", true);
         AudioManager.Instance.PlaySFX(SFX.DoorOpen);
     }
+=======
+>>>>>>> a5af1145dad09f5642cb0894bfd935dce59ae790
 
-    public void DisableCollider() // called by animation event
-    {
-        collider.enabled = false;
-    }
-
-    void UpdateKeyCount()
-    {
-        numberOfKeysLeft--;
-        if (numberOfKeysLeft == 0)
+        private void OnEnable()
         {
-            Open();
+            var keys = FindObjectsOfType<Key>();
+            foreach (var key in keys)
+            {
+                key.OnKeyUsed += UpdateKeyCount;
+                numberOfKeysLeft++;
+            }
         }
+
+        private void Open()
+        {
+            anim.SetBool("isOpen", true);
+        }
+
+        public void DisableCollider() // called by animation event
+        {
+            collider.enabled = false;
+        }
+
+        void UpdateKeyCount()
+        {
+            numberOfKeysLeft--;
+            if (numberOfKeysLeft == 0)
+            {
+                Open();
+            }
+        }
+
+
     }
-
-
 }

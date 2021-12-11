@@ -216,7 +216,7 @@ MonoBehaviour:
     m_Bits: 64
   playersFeet: {fileID: 5173474810925922060}
   collideRadius: 0.1
-  playerSpeed: 4
+  playerSpeed: 5
   jumpForce: 1000
   moveFeel: 0.5
 --- !u!95 &5173474811648909019

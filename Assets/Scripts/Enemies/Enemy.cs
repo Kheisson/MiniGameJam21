@@ -22,7 +22,7 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            enemyRb.velocity = new Vector2(enemiesSpeed * Time.fixedDeltaTime, enemyRb.velocity.y);
+            enemyRb.velocity = new Vector2(enemiesSpeed, enemyRb.velocity.y);
             if (ReachedEndOfPlatform && onPlatform)
             {
                 FlipDirection();
