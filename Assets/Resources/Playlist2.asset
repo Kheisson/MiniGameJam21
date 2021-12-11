@@ -17,3 +17,4 @@ MonoBehaviour:
   gravitationChangeSFX: {fileID: 8300000, guid: dfa6aeeb42402ad4f8f4b729c0f38dd1, type: 3}
   keyPickupSFX: {fileID: 8300000, guid: 0aefa0cc98ee7a54fafa358c7f3cafe6, type: 3}
   doorOpenSFX: {fileID: 8300000, guid: 2088e564b47c43f4fa6808d041466339, type: 3}
+  deathEnemySFX: {fileID: 8300000, guid: 6a11f9dbef7191b4cab2f46a5b37f175, type: 3}

@@ -10,8 +10,10 @@ namespace Audio
         [SerializeField] private AudioClip gravitationChangeSFX;
         [SerializeField] private AudioClip keyPickupSFX;
         [SerializeField] private AudioClip doorOpenSFX;
+        [SerializeField] private AudioClip deathEnemySFX;
         
         public AudioClip DoorOpenSfx => doorOpenSFX;
+        public AudioClip DeathEnemySfx => deathEnemySFX;
         public AudioClip KeyPickupSfx => keyPickupSFX;
         public AudioClip GravitationChangeSfx => gravitationChangeSFX;
         public AudioClip DeathSfx => deathSFX;

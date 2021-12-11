@@ -1,3 +1,4 @@
+using Animations;
 using Base;
 using UnityEngine;
 
@@ -14,11 +15,13 @@ namespace Enemies
         [SerializeField] private float circleRadius;
         [SerializeField] private bool onPlatform;
         [SerializeField] private Collider2D feetCollider;
-    
+
+        private EnemyAnimation _ea;
         private void Start()
         {
             rb = enemyRb;
             body = enemiesBody;
+            _ea = new EnemyAnimation(GetComponent<Animator>());
         }
 
         private void FixedUpdate()
@@ -48,7 +51,8 @@ namespace Enemies
             
             if (other.gameObject.CompareTag("Hazards") && other.otherCollider != feetCollider)
             {
-                Destroy(gameObject);
+                _ea.HandleDeath();
+                Destroy(gameObject, 0.1f);
             }
         }
 

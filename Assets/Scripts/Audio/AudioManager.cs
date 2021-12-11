@@ -47,6 +47,9 @@ namespace Audio
                 case SFX.JumpSfx:
                     oneShotClip = audioPlayList.JumpSfx;
                     break;
+                case SFX.DeathEnemySfx:
+                    oneShotClip = audioPlayList.DeathEnemySfx;
+                    break;
             }
             GetComponent<AudioSource>().PlayOneShot(oneShotClip);
         }
@@ -58,6 +61,7 @@ namespace Audio
         KeyPickupSfx,
         GravitationChangeSfx,
         DeathSfx,
-        JumpSfx
+        JumpSfx,
+        DeathEnemySfx
     }
 }
