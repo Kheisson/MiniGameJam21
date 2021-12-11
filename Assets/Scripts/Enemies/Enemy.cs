@@ -23,17 +23,27 @@ namespace Enemies
         private void FixedUpdate()
         {
             enemyRb.velocity = new Vector2(enemiesSpeed, enemyRb.velocity.y);
-            if (ReachedEndOfPlatform && onPlatform)
+            if (onPlatform && ReachedEndOfPlatform)
             {
                 FlipDirection();
                 enemiesSpeed *= -1;
             }
         }
 
+        public override void Flip()
+        {
+            base.Flip();
+            enemiesSpeed *= -1;
+            onPlatform = false;
+        }
+        
         private void OnCollisionEnter2D(Collision2D other)
         {
-            FlipDirection();
-            enemiesSpeed *= -1;
+            if (!onPlatform)
+            {
+                FlipDirection();
+                enemiesSpeed *= -1;
+            }
         }
 
         private bool ReachedEndOfPlatform => !Physics2D.OverlapCircle(enemiesFeet.position, circleRadius, groundLayerMask);
