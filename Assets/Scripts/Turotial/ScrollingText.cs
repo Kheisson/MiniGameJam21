@@ -1,4 +1,5 @@
 using System.Collections;
+using PlayerControl;
 using UnityEngine;
 using TMPro;
 
@@ -9,26 +10,26 @@ namespace Turotial
         [SerializeField] private TMP_Text textBox;
         [SerializeField] private string tutorialText;
         [SerializeField] private CanvasGroup canvasGroup;
-
-        private float _defaultTimer = 1f;
+        [SerializeField] private GameObject player;
+        
         private void Start()
         {
             Time.timeScale = 0f;
             canvasGroup.alpha = 0;
+            player.GetComponent<PlayerInput>().enabled = false;
             StartCoroutine(ShowDialogue());
         }
 
         private IEnumerator ShowDialogue()
         {
-            yield return new WaitForSecondsRealtime(_defaultTimer);
             canvasGroup.alpha = 1;
             foreach (var c in tutorialText.ToCharArray())
             {
                 textBox.text += c;
-                yield return new WaitForSecondsRealtime(0.05f);
+                yield return new WaitForSecondsRealtime(0.025f);
             }
-            yield return new WaitForSecondsRealtime(_defaultTimer);
             Time.timeScale = 1f;
+            player.GetComponent<PlayerInput>().enabled = true;
         }
     }
 }

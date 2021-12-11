@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace Audio
@@ -7,34 +8,23 @@ namespace Audio
     public class AudioManager : MonoBehaviour
     {
         private static AudioManager _instance;
-        private static AudioSource _audioSource;
 
         [SerializeField] private AudioPlaylistSo audioPlayList;
 
+        public static AudioManager Instance => _instance;
+
         private void Awake()
         {
-            _instance = this;
-            _audioSource = GetComponent<AudioSource>();
-            DontDestroyOnLoad(gameObject);
-        }
-
-        public static AudioManager Instance
-        {
-            get
+            if (_instance == null)
             {
-                if (_instance == null)
-                {
-                    _instance = CreateInstance();
-                }
-                return _instance;
+                _instance = this;
             }
-        }
-
-        private static AudioManager CreateInstance()
-        {
-            var go = new GameObject("Audio Manager");
-            var monoBeh = go.AddComponent<AudioManager>();
-            return monoBeh;
+            else
+            {
+                Destroy(gameObject);
+            }
+            audioPlayList = Resources.Load<AudioPlaylistSo>("Playlist2");
+            DontDestroyOnLoad(this);
         }
 
         public void PlaySFX(SFX sfxClip)
@@ -58,7 +48,7 @@ namespace Audio
                     oneShotClip = audioPlayList.JumpSfx;
                     break;
             }
-            _audioSource.PlayOneShot(oneShotClip);
+            GetComponent<AudioSource>().PlayOneShot(oneShotClip);
         }
     }
     

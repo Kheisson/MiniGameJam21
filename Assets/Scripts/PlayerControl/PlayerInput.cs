@@ -1,6 +1,5 @@
 using Animations;
 using Base;
-using Gravity;
 using UnityEngine;
 
 namespace PlayerControl
