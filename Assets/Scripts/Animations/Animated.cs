@@ -8,8 +8,6 @@ namespace Animations
         
         private readonly int _jump = Animator.StringToHash("Jump");
         private readonly int _death = Animator.StringToHash("Death");
-        private readonly int _inAir = Animator.StringToHash("inAir");
-
 
         protected Animated(Animator anim)
         {

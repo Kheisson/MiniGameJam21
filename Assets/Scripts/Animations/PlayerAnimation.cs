@@ -9,14 +9,10 @@ namespace Animations
         private readonly int _isGrounded = Animator.StringToHash("isGrounded");
         private readonly int _verticalVelocity = Animator.StringToHash("verticalVelocity");
 
-        private Rigidbody2D _rb;
-        private PlayerInput _playerInput;
 
-
-        public PlayerAnimation(Animator anim, Rigidbody2D rb) : base(anim)
+        public PlayerAnimation(Animator anim) : base(anim)
         {
-            _rb = rb;
-            _playerInput = anim.GetComponent<PlayerInput>();
+
         }
 
         public void Run(bool isRunning)
@@ -28,10 +24,10 @@ namespace Animations
         {
             JumpAnimation();
         }
-        public void HandleFalling()
+        public void HandleFalling(bool isGrounded, float yVelocity)
         {
-            _anim.SetFloat(_verticalVelocity, _rb.velocity.y);
-            _anim.SetBool(_isGrounded, _playerInput.isGrounded);
+            _anim.SetFloat(_verticalVelocity, yVelocity);
+            _anim.SetBool(_isGrounded, isGrounded);
         }
     }
 }
