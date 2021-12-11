@@ -1,32 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using Gravity;
 using UnityEngine;
 
 namespace PlayerControl
 {
     public static class GravityControl
     {
-        private static List<Rigidbody2D> _rigids = new List<Rigidbody2D>();
-        private static bool _top;
-        
+        private static IEnumerable<IImpactable> _impactables;
+
         private static void CollectAllBodies()
         {
-            _rigids = Object.FindObjectsOfType<Rigidbody2D>().ToList();
+            _impactables = Object.FindObjectsOfType<MonoBehaviour>().OfType<IImpactable>();
             ChangeGravity();
         }
 
         private static void ChangeGravity()
         {
-            foreach (var rb in _rigids)
+            foreach (var body in _impactables)
             {
-                rb.gravityScale *= -1;
-                if (_top == false)
-                    rb.gameObject.transform.eulerAngles = new Vector3(0, 0, 180);
-                else
-                    rb.gameObject.transform.eulerAngles = Vector3.zero;
+                body.Flip();
             }
-
-            _top = !_top;
         }
 
         public static void Switch()
