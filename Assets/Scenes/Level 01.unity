@@ -4984,46 +4984,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hourglass Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3035092464742584452, guid: 17ba26e962b8c7b47895b4b776bd3827, type: 3}
-    - {fileID: 3035092464742584453, guid: 17ba26e962b8c7b47895b4b776bd3827, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ba26e962b8c7b47895b4b776bd3827, type: 3}
---- !u!1 &3035092465719913413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3035092464254714686, guid: 17ba26e962b8c7b47895b4b776bd3827, type: 3}
-  m_PrefabInstance: {fileID: 3035092465719913412}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3035092465719913414
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3035092465719913413}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 280df0e34633d7d44ab3cc2dbf19b96a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3035092465719913415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3035092465719913413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd35b793207370342b726111c8b1ff2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4803747592225357013
 PrefabInstance:
   m_ObjectHideFlags: 0
