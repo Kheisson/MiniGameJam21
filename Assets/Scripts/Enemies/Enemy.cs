@@ -13,6 +13,7 @@ namespace Enemies
         [SerializeField] private float enemiesSpeed;
         [SerializeField] private float circleRadius;
         [SerializeField] private bool onPlatform;
+        [SerializeField] private Collider2D feetCollider;
     
         private void Start()
         {
@@ -43,6 +44,11 @@ namespace Enemies
             {
                 FlipDirection();
                 enemiesSpeed *= -1;
+            }
+            
+            if (other.gameObject.CompareTag("Hazards") && other.otherCollider != feetCollider)
+            {
+                Destroy(gameObject);
             }
         }
 
