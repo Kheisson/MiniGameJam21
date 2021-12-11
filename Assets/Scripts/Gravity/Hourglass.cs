@@ -8,7 +8,6 @@ namespace Gravity
 {
     public class Hourglass : MonoBehaviour, IImpactable
     {
-        public event Action OnGravity;
         
         [SerializeField] private float fillPerSecond = 0.15f;
         private int direction = 1; // 1 for down, -1 for up.
@@ -41,7 +40,14 @@ namespace Gravity
 
         public void TimeOut() // called by animation event
         {
-            Debug.Log("Out of time!");
+            var player = FindObjectOfType<PlayerInput>();
+            if (player != null)
+            {
+                player.enabled = false;
+            }
+
+            Time.timeScale = Mathf.Epsilon;
+            StartCoroutine(SceneLoader.Instance.GameOver());
         }
     }
 

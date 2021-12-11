@@ -1,5 +1,6 @@
 using Animations;
 using Base;
+using Gravity;
 using UnityEngine;
 
 namespace PlayerControl
@@ -94,14 +95,17 @@ namespace PlayerControl
 
         public void Death()
         {
-            SceneLoader.Instance.GameOver();
+            StartCoroutine(SceneLoader.Instance.GameOver());
+            FindObjectOfType<Hourglass>().gameObject.SetActive(false);
             _pa.HandleDeath();
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0;
             this.enabled = false;
         }
 
         private void DestroyPlayer() // called by animation event
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.5f);
         }
     }
 }

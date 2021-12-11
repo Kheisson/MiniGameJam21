@@ -24,9 +24,11 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public IEnumerator GameOver()
     {
-        Invoke(nameof(RestartScene), levelRestartDelay);
+        yield return new WaitForSecondsRealtime(levelRestartDelay);
+        RestartScene();
+        //Invoke(nameof(RestartScene), levelRestartDelay);
     }
 
     public void RestartScene()
