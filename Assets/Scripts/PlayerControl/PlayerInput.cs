@@ -8,12 +8,18 @@ namespace PlayerControl
         private const string HORIZONAL_INPUT_NAME = "Horizontal";
         private const KeyCode JUMP_INPUT_NAME = KeyCode.Space;
 
+        public bool isGrounded
+        {
+            get => IsGrounded();
+        }
+
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private SpriteRenderer playerSprite;
         [SerializeField] private BoxCollider2D playerCollider;
         
         [Header("Jump collider layer")] [SerializeField] private LayerMask layer;
+        [Header("Ground Check Distance")] [SerializeField] private float groundCheckDistance = 0.5f;
         [Header("Speed")] [SerializeField] private float playerSpeed = 1f;
 
         private PlayerAnimation _pa;
@@ -22,7 +28,7 @@ namespace PlayerControl
 
         private void Start()
         {
-            _pa = new PlayerAnimation(playerAnimator);
+            _pa = new PlayerAnimation(playerAnimator, GetComponentInChildren<Rigidbody2D>());
         }
 
         private void FixedUpdate()
@@ -34,6 +40,7 @@ namespace PlayerControl
         {
             if (Input.GetKeyDown(JUMP_INPUT_NAME) && IsGrounded())
                 Jump();
+            _pa.HandleFalling();
         }
 
         private void Move(float input)
@@ -67,7 +74,7 @@ namespace PlayerControl
         private bool IsGrounded()
         {
             RaycastHit2D hit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f,
-                Vector2.down, 0.5f,layer);
+                Vector2.down, groundCheckDistance,layer);
             return hit.collider != null;
         }
 
