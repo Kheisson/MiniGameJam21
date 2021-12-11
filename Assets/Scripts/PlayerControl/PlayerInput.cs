@@ -33,9 +33,9 @@ namespace PlayerControl
 
         private void Update()
         {
-            if (Input.GetKeyDown(JUMP_INPUT_NAME) && isGrounded)
+            if (Input.GetKeyDown(JUMP_INPUT_NAME) && IsGrounded)
                 Jump();
-            _pa.HandleFalling(isGrounded, rb.velocity.y);
+            _pa.HandleFalling(IsGrounded, rb.velocity.y);
         }
 
         private void Move(float input)
@@ -66,18 +66,14 @@ namespace PlayerControl
             _pa.HandleJump();
         }
 
-        private bool IsGrounded()
+        private bool GroundCheck()
         {
             RaycastHit2D hit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f,
                 Vector2.down, groundCheckDistance,layer);
             return hit.collider != null;
         }
-        
-        public bool isGrounded
-        {
-            get => IsGrounded();
-        }
 
+        private bool IsGrounded => GroundCheck();
     }
 
 }
