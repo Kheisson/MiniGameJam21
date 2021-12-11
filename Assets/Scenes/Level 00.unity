@@ -237,23 +237,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d669da33eb2355b4dbc56969705aab47, type: 3}
---- !u!1 &554087251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5173474811581279664, guid: 92e8333bd4864ca40bad682de4a98ba5, type: 3}
-  m_PrefabInstance: {fileID: 5173474811626694571}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &554087256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554087251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545da5f147cd1854bb3680affff81de5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &995520808
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,8 +395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1512874338}
   tutorialText: COLLECT ALL THE KEYS AND EXIT THE AREA BEFORE TIME RUNS OUT
-  canvasGroup: {fileID: 1060918529}
-  player: {fileID: 1839023685}
 --- !u!225 &1060918529
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1465,11 +1446,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a7de6fc67fedd14b8480abbc1f3a995, type: 3}
---- !u!1 &1839023685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5173474811648908996, guid: 92e8333bd4864ca40bad682de4a98ba5, type: 3}
-  m_PrefabInstance: {fileID: 5173474811626694571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007903765
 GameObject:
   m_ObjectHideFlags: 0
