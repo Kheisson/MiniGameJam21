@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DoorsAndKeys
+namespace Doors_and_Keys
 {
     public class Key : MonoBehaviour
     {

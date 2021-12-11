@@ -1,28 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using PlayerControl;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace PlayerControl
 {
-    private bool isDead = false;
-    private void OnCollisionEnter2D(Collision2D other)
+    public class PlayerHealth : MonoBehaviour
     {
-        if (isDead)
+        private bool isDead = false;
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            return;
+            if (isDead)
+            {
+                return;
+            }
+
+            if (other.collider.CompareTag("Hazards"))
+            {
+                Die();
+            }
         }
 
-        if (other.collider.CompareTag("Hazards"))
+        private void Die()
         {
-            Die();
+            isDead = false;
+            GetComponentInParent<PlayerInput>().Death();
         }
-    }
-
-    private void Die()
-    {
-        isDead = false;
-        GetComponentInParent<PlayerInput>().Death();
     }
 }

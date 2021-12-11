@@ -1,5 +1,4 @@
 using Audio;
-using DoorsAndKeys;
 using UnityEngine;
 
 namespace Doors_and_Keys

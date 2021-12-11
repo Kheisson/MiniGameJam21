@@ -1,13 +1,15 @@
 using UnityEngine;
 
-
-public class LevelExit : MonoBehaviour
+namespace LevelLoading
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class LevelExit : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            SceneLoader.Instance.LoadNextLevel();
+            if (other.CompareTag("Player"))
+            {
+                SceneLoader.Instance.LoadNextLevel();
+            }
         }
     }
 }
