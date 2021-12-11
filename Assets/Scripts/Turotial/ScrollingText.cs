@@ -9,27 +9,20 @@ namespace Turotial
     {
         [SerializeField] private TMP_Text textBox;
         [SerializeField] [TextArea(15,20)] private string tutorialText;
-        [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private GameObject player;
-        
-        private void Start()
+
+        public void ShowText()
         {
-            Time.timeScale = 0f;
-            canvasGroup.alpha = 0;
-            player.GetComponent<PlayerInput>().enabled = false;
             StartCoroutine(ShowDialogue());
         }
-
+        
         private IEnumerator ShowDialogue()
         {
-            canvasGroup.alpha = 1;
+            textBox.color = new Color(255,255,255,255);
             foreach (var c in tutorialText.ToCharArray())
             {
                 textBox.text += c;
                 yield return new WaitForSecondsRealtime(0.025f);
             }
-            Time.timeScale = 1f;
-            player.GetComponent<PlayerInput>().enabled = true;
         }
     }
 }
