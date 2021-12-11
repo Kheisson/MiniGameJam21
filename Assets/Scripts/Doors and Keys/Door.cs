@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Audio;
+using DoorsAndKeys;
 using UnityEngine;
 
-namespace DoorsAndKeys
+namespace Doors_and_Keys
 {
     public class Door : MonoBehaviour
     {
@@ -17,16 +15,13 @@ namespace DoorsAndKeys
             collider = GetComponent<BoxCollider2D>();
             anim = GetComponent<Animator>();
         }
-<<<<<<< HEAD
-    }
-    
-    private void Open()
-    {
-        anim.SetBool("isOpen", true);
-        AudioManager.Instance.PlaySFX(SFX.DoorOpen);
-    }
-=======
->>>>>>> a5af1145dad09f5642cb0894bfd935dce59ae790
+
+        private void Open()
+        {
+            anim.SetBool("isOpen", true);
+            AudioManager.Instance.PlaySFX(SFX.DoorOpen);
+        }
+
 
         private void OnEnable()
         {
@@ -36,11 +31,6 @@ namespace DoorsAndKeys
                 key.OnKeyUsed += UpdateKeyCount;
                 numberOfKeysLeft++;
             }
-        }
-
-        private void Open()
-        {
-            anim.SetBool("isOpen", true);
         }
 
         public void DisableCollider() // called by animation event
@@ -56,7 +46,5 @@ namespace DoorsAndKeys
                 Open();
             }
         }
-
-
     }
 }
