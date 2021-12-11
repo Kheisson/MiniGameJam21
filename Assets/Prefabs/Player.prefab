@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46472b6922a87e648be34afa8033563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5173474811581279668}
+  playerRb: {fileID: 5173474811581279668}
   playerAnimator: {fileID: 5173474811648909019}
   playersBody: {fileID: 5173474811581279669}
   playerCollider: {fileID: 5173474811581279671}
