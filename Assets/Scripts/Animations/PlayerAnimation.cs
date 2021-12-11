@@ -29,5 +29,10 @@ namespace Animations
             _anim.SetFloat(_verticalVelocity, yVelocity);
             _anim.SetBool(_isGrounded, isGrounded);
         }
+
+        public void HandleDeath()
+        {
+            _anim.SetTrigger("Death");
+        }
     }
 }
