@@ -12,6 +12,7 @@ namespace Animations
         
         public void HandleDeath()
         {
+            _anim.SetTrigger("death");
             AudioManager.Instance.PlaySFX(SFX.DeathEnemySfx);
         }
     }
