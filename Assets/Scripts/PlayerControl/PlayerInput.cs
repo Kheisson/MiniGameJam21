@@ -1,10 +1,10 @@
 using Animations;
+using Gravity;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace PlayerControl
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayerInput : MonoBehaviour, IImpactable
     {
         private const string HORIZONAL_INPUT_NAME = "Horizontal";
         private const KeyCode JUMP_INPUT_NAME = KeyCode.Space;
@@ -27,6 +27,7 @@ namespace PlayerControl
 
         private PlayerAnimation _pa;
         private bool _facingRight = true;
+        private bool _top;
         
 
         private void Start()
@@ -91,5 +92,16 @@ namespace PlayerControl
         }
 
         private bool IsGrounded => GroundCheck();
+        public void Flip()
+        {
+            rb.gravityScale *= -1;
+            if (_top == false)
+                rb.gameObject.transform.eulerAngles = new Vector3(0, 0, 180);
+            else
+                rb.gameObject.transform.eulerAngles = Vector3.zero;
+
+            _top = !_top;
+            jumpForce *= -1;
+        }
     }
 }

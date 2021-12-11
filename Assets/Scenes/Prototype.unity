@@ -457,8 +457,8 @@ MonoBehaviour:
     m_Bits: 64
   playersFeet: {fileID: 1689320938}
   collideRadius: 0.1
-  playerSpeed: 3
-  jumpForce: 500
+  playerSpeed: 4
+  jumpForce: 1000
   moveFeel: 0.5
 --- !u!95 &1967249271
 Animator:
@@ -528,12 +528,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 4
   m_AngularDrag: 0.1
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2018570334
 SpriteRenderer:
   m_ObjectHideFlags: 0
