@@ -23,6 +23,7 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
     public IEnumerator GameOver()
     {
