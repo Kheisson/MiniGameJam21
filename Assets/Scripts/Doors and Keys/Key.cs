@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using UnityEngine;
 
 namespace Doors_and_Keys
@@ -27,6 +28,7 @@ namespace Doors_and_Keys
             wasUsed = true;
             OnKeyUsed?.Invoke();
             animator.SetTrigger("used");
+            AudioManager.Instance.PlaySFX(SFX.KeyPickupSfx);
         }
 
         private void DestroyKey() // Used by animation event.
