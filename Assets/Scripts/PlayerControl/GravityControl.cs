@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using Gravity;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace PlayerControl
         public static void Switch()
         {
             CollectAllBodies();
+            AudioManager.Instance.PlaySFX(SFX.GravitationChangeSfx);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PlayerControl;
+﻿using Audio;
+using PlayerControl;
 using UnityEngine;
 
 namespace Animations
@@ -23,6 +24,7 @@ namespace Animations
         public void HandleJump()
         {
             JumpAnimation();
+            AudioManager.Instance.PlaySFX(SFX.JumpSfx);
         }
         public void HandleFalling(bool isGrounded, float yVelocity)
         {
@@ -33,6 +35,7 @@ namespace Animations
         public void HandleDeath()
         {
             _anim.SetTrigger("Death");
+            AudioManager.Instance.PlaySFX(SFX.DeathSfx);
         }
     }
 }

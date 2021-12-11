@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -28,6 +29,7 @@ public class Door : MonoBehaviour
     private void Open()
     {
         anim.SetBool("isOpen", true);
+        AudioManager.Instance.PlaySFX(SFX.DoorOpen);
     }
 
     public void DisableCollider() // called by animation event
