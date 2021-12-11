@@ -8,7 +8,7 @@ namespace Turotial
     public class ScrollingText : MonoBehaviour
     {
         [SerializeField] private TMP_Text textBox;
-        [SerializeField] private string tutorialText;
+        [SerializeField] [TextArea(15,20)] private string tutorialText;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private GameObject player;
         
