@@ -1,16 +1,17 @@
 using Animations;
+using Base;
 using Gravity;
 using UnityEngine;
 
 namespace PlayerControl
 {
-    public class PlayerInput : MonoBehaviour, IImpactable
+    public class PlayerInput : Humaniod
     {
         private const string HORIZONAL_INPUT_NAME = "Horizontal";
         private const KeyCode JUMP_INPUT_NAME = KeyCode.Space;
 
         [Header("Component list")][Space(5)]
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Rigidbody2D playerRb;
         [SerializeField] private Animator playerAnimator;
         [SerializeField] private Transform playersBody;
         [SerializeField] private BoxCollider2D playerCollider;
@@ -26,13 +27,13 @@ namespace PlayerControl
         [SerializeField] private float moveFeel = 0.5f;
 
         private PlayerAnimation _pa;
-        private bool _facingRight = true;
-        private bool _top;
-        
+
 
         private void Start()
         {
             _pa = new PlayerAnimation(playerAnimator);
+            rb = playerRb;
+            body = playersBody;
         }
 
         private void FixedUpdate()
@@ -71,14 +72,7 @@ namespace PlayerControl
             else if (_facingRight == true && rb.velocity.x < 0)
                 FlipDirection();
         }
-
-        private void FlipDirection()
-        {
-            _facingRight = !_facingRight;
-            var newScale = playersBody.localScale;
-            newScale.x *= -1;
-            playersBody.localScale = newScale;
-        }
+        
 
         private void Jump()
         {
@@ -92,15 +86,10 @@ namespace PlayerControl
         }
 
         private bool IsGrounded => GroundCheck();
-        public void Flip()
-        {
-            rb.gravityScale *= -1;
-            if (_top == false)
-                rb.gameObject.transform.eulerAngles = new Vector3(0, 0, 180);
-            else
-                rb.gameObject.transform.eulerAngles = Vector3.zero;
 
-            _top = !_top;
+        public override void Flip()
+        {
+            base.Flip();
             jumpForce *= -1;
         }
 
