@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b34bc79421164db4f9d2f2366e7c4, type: 3}
   m_Name: Playlist1
   m_EditorClassIdentifier: 
+  jumpSFX: {fileID: 8300000, guid: 106fe03be9c6e9a4bac07ead4df9274a, type: 3}
+  deathSFX: {fileID: 8300000, guid: ad20f4cfb6e09084cb7726d195d68011, type: 3}
+  gravitationChangeSFX: {fileID: 8300000, guid: dfa6aeeb42402ad4f8f4b729c0f38dd1, type: 3}
+  keyPickupSFX: {fileID: 8300000, guid: 0aefa0cc98ee7a54fafa358c7f3cafe6, type: 3}
+  doorOpenSFX: {fileID: 8300000, guid: 2088e564b47c43f4fa6808d041466339, type: 3}

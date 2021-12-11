@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+
+    [SerializeField] private float levelRestartDelay = 1f;
     public static SceneLoader Instance { get; private set; }
+    
 
     private void Awake()
     {
@@ -19,6 +22,11 @@ public class SceneLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void GameOver()
+    {
+        Invoke(nameof(RestartScene), levelRestartDelay);
     }
 
     public void RestartScene()

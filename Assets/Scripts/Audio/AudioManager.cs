@@ -14,6 +14,7 @@ namespace Audio
         private void Awake()
         {
             _instance = this;
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public static AudioManager Instance

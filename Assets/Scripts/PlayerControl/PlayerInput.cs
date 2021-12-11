@@ -95,6 +95,7 @@ namespace PlayerControl
 
         public void Death()
         {
+            SceneLoader.Instance.GameOver();
             _pa.HandleDeath();
             this.enabled = false;
         }
