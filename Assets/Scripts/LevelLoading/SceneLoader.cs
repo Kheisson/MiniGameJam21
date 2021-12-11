@@ -6,10 +6,9 @@ namespace LevelLoading
 {
     public class SceneLoader : MonoBehaviour
     {
-
         [SerializeField] private float levelRestartDelay = 1f;
         public static SceneLoader Instance { get; private set; }
-    
+
 
         private void Awake()
         {
@@ -18,7 +17,7 @@ namespace LevelLoading
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
-            else if(Instance != this)
+            else if (Instance != this)
             {
                 Destroy(gameObject);
             }
@@ -28,8 +27,8 @@ namespace LevelLoading
         {
             yield return new WaitForSecondsRealtime(levelRestartDelay);
             RestartScene();
-            //Invoke(nameof(RestartScene), levelRestartDelay);
         }
+
 
         public void RestartScene()
         {
