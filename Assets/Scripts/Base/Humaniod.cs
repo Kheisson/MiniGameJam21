@@ -29,6 +29,6 @@ namespace Base
             newScale.x *= -1;
             body.localScale = newScale;
         }
-        
+
     }
 }

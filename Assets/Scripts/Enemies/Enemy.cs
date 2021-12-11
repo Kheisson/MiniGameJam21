@@ -57,10 +57,18 @@ namespace Enemies
             if (other.gameObject.CompareTag("Hazards") && other.otherCollider != feetCollider)
             {
                 rb.velocity = Vector2.zero;
+                rb.gravityScale = 0;
+                isDead = true;
                 _ea.HandleDeath();
             }
         }
 
+        private void DestroyEnemy() // called by animation event.
+        {
+            Destroy(gameObject);
+        }
+
         private bool ReachedEndOfPlatform => !Physics2D.OverlapCircle(enemiesFeet.position, circleRadius, groundLayerMask);
     }
+    
 }

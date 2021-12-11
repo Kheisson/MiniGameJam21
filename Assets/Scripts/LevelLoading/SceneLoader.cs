@@ -34,6 +34,7 @@ public class SceneLoader : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
     public void LoadNextLevel()
